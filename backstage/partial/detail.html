@@ -1,0 +1,48 @@
+<h1>專案內容</h1>
+
+<div>
+<label>客戶名稱: </label>{{project.overview.customer_name}}</br>
+<label>專案名稱: </label>{{project.overview.project_name}}   
+</div>
+
+
+<button class="btn btn-default" ng-repeat="(key,value) in contentType" 
+		ng-click="addContent(key)">+{{value}}</button>
+
+<div ng-repeat="sub in project.detail" ng-switch="sub.type">
+		
+		<div class="ContentArea">
+			{{$index}}. {{getTypegName(sub.type)}}
+			<span class="pull-right">
+				<button class="btn" ng-click="removeContent($index)"><span class="glyphicon glyphicon-remove"></button>
+				<button class="btn" ng-click="moveContent($index,-1)"><span class="glyphicon glyphicon-arrow-up"></span></button>
+				<button class="btn" ng-click="moveContent($index,1)"><span class="glyphicon glyphicon-arrow-down"></span></button>
+			</span>
+
+
+			<div ng-switch-when="text">
+				title: <input type="text" ng-model="sub.title"></br>
+				text: <textarea rows="15" style="width:100%" ng-model="sub.text"></textarea>
+			</div>
+			<div ng-switch-when="image_1" ng-init="addImgId($index,1)">
+				<ag-image-uploader image-info="圖片 (2:1)" image-object="imgFlow[sub.img_tag]" image-url="{{sub.image_src}}"></ag-image-uploader>
+			</div> 
+			<div ng-switch-when="image_2" ng-init="addImgId($index,2)">
+				<ag-image-uploader image-info="圖片一 (4:3)" image-object="imgFlow[sub.img_tag1]" image-url="{{sub.image_src_1}}"></ag-image-uploader>
+				<ag-image-uploader image-info="圖片二 (4:3)" image-object="imgFlow[sub.img_tag2]" image-url="{{sub.image_src_2}}"></ag-image-uploader>
+			</div>
+			<div ng-switch-when="video" ng-init="decodeVideoUrl(sub.video_src,sub)">
+				host:<select ng-model="sub.vtype">
+					<option ng-repeat="(key,value) in videoHost" value="{{key}}">{{key}}</option>
+				</select></br>
+				id: <input type="text" ng-model="sub.vid">
+			</div>
+
+		</div>
+	
+</div>
+
+<button class="btn btn-danger pull-right" ng-click="goPreview()">預覽</button>
+<!-- <button class="btn btn-danger pull-right" ng-click="saveDetail()">GO!</button> -->
+
+<div class="loadingSpin" ng-show="loading"></div>

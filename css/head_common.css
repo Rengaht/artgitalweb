@@ -1,0 +1,35 @@
+.headText{
+	position:absolute;
+	top:50px;
+	left:50px;
+	display: inline-block;
+
+/*	color:red;*/
+	padding-bottom:5px;
+	border-bottom: 1px solid white;
+}
+
+.headerBack{
+	position: relative;
+	width:100%;	
+	background-size:cover;
+}
+/*.headImage{
+	top:0;
+	left:0;
+	z-index: -1;
+}*/
+
+.headArea{
+	position:relative;
+	width:100%;
+	top:0;
+	padding:70px 30px;
+	height:678px;
+	/*left:0;*/
+	/*display:table;*/
+}
+.headTitle{
+	font-size:80px;
+	color:white;
+}

@@ -1,0 +1,27 @@
+<div class="container" >
+
+	<a ui-sref="project_create">
+		<button type="button" class="btn btn-danger pull-right">+New</button>
+	</a>
+	<button type="button" class="btn btn-info" ng-click="updateOrder()">updateOrder</button>
+
+	<div class="col-md-12 contentArea"  ng-repeat="item in items">
+		<div class="pull-right">
+			{{$index}}</div>
+		<h1 ng-style="(item.is_highlight=='1'?{'color':'#e92429'}:{'color':'#000'})">{{item.customer_name}}/  {{item.project_name}}</h1>
+		<div>
+			<a ui-sref="project_overview({pid:item.id})">
+				<button type="button" class="btn btn-info">Edit</button>
+			</a>       
+
+			<!-- <input type="checkbox" ng-model="item.show">Show -->
+			<button type="button" class="btn btn-primary" ng-click="setPublish(item.id,1)" ng-show="item.publish=='0'">Publish</button>
+			<button type="button" class="btn btn-danger" ng-click="setPublish(item.id,0)" ng-show="item.publish=='1'">UnPublish</button>
+
+			<button class="btn" ng-click="removeProject(item.id)"><span class="glyphicon glyphicon-remove"></button>
+			<button class="btn" ng-click="moveOrder($index,-1)"><span class="glyphicon glyphicon-arrow-up"></span></button>
+			<button class="btn" ng-click="moveOrder($index,1)"><span class="glyphicon glyphicon-arrow-down"></span></button>
+		</div>
+	</div>
+
+</div>

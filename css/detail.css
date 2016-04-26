@@ -1,0 +1,239 @@
+.detailHead{
+	position:relative;
+    top:0;
+    left:0;
+}
+.detailTitleArea{
+	position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+ 	background:rgba(0,0,0, 0.55);
+    
+ 	padding:8%;
+    color:#fff;
+
+
+}
+.projectLogoWrap{
+    max-height:100px;
+}
+.projectLogoImage{
+    max-height: 100px;
+}
+
+.projectTitle{
+    margin-top: 12%;
+    font-size: 400%;
+}
+.projectDescript{
+    position: absolute;
+    bottom: 25%;    
+}
+
+
+.detailScroll{
+
+    position: absolute;
+    bottom: 10%;    
+
+    display:block;
+    cursor:pointer;
+
+    width:38px;
+    height:39px;
+    border:0;
+    outline: none;
+
+    background-image:url("../image/scroll.png");
+    background-position: 0px 0px;
+    background-repeat: no-repeat;
+}
+.detailScroll:hover{
+     background-position: -38px 0px;
+}
+
+.detailContent{
+    /*padding-top: 80px;   */
+}
+
+.detailContent:after{
+    content:"";
+    display: block;
+    clear:both;
+}
+
+.videowrapper {
+    float: none;
+    clear: both;
+    width: 100%;
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 25px;
+    height: 0;
+    border:0;
+    outline: 0;
+}
+.videowrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.contentImage{
+    margin:0;
+    padding:0;
+    position: relative;
+    overflow: hidden;
+}
+.image2by1{
+    width:100%;
+    padding-bottom: 50%;
+  
+}
+.image4by3{
+    width:100%;
+    padding-bottom: 75%;
+}
+.image3by2{
+    width:100%;
+    padding-bottom: 66%;
+}
+
+.image2by1 >img,
+.image4by3 >img,
+.image3by2 >img{
+    position: absolute;
+    min-width:100%;    
+    height:auto;
+    top:0; bottom: 0; left: 0; right: 0;
+
+}
+
+/* text */
+.detailTextWrap{
+    padding-top: 120px;
+    padding-bottom: 120px;
+}
+.contentText{
+  /*  margin-top:5%;
+    margin-bottom:5%;
+    margin-left:25%;*/
+    padding:0px 50px;
+    display: inline-block;
+    float:right;
+}
+
+.contentTitle{
+    position:relative;
+    font-size: 48px;
+   
+    margin-bottom:30px;
+
+    overflow: hidden;
+    display: inline-block;
+}
+.preText{
+    position:relative;
+    white-space: pre-wrap;
+}
+
+.textCircle{
+    float:left;
+    width:220px;
+    height:220px;
+
+    border:1px solid;
+    border-radius: 50%;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+
+}
+.textInCircle{
+    /*text-align: center;*/
+    position:relative;
+    margin:5px auto;
+    padding-bottom: 5px;
+    display:inline-block;
+    overflow: hidden;
+
+    cursor:pointer;
+    font-size: 14px;
+}
+.textInCircle:hover{
+    color:#e92429;
+    /*text-decoration: underline;*/
+    transition: .2s;
+}
+.textInCircleLink:hover svg{
+    left:0;
+    transition: .2s;
+}
+.textInCircleLink>svg{
+    margin-top: 3px;    
+}
+.textTitleLineContainer{
+    position:absolute;
+    left:-100%;
+    top:0;
+
+    width:100%;
+    height:100%;
+    /*transition: .5s;*/
+}
+.textTitleText{
+    opacity: 0;
+    margin-bottom: 0;
+}
+
+/*.contentTitle:hover .textTitleLineContainer{
+
+    animation: tlinemove 1.2s ease-in;
+}
+.contentTitle:hover .textTitleText{
+ 
+    animation: ttextshow 1.2s ease;
+
+}*/
+.textTitleLineContainerShow{
+    animation: tlinemove 1.2s ease-in-out;    
+    animation-fill-mode: forwards;
+}
+.textTitleTextShow{
+    animation: ttextshow .6s .6s ease-in-out;
+    animation-fill-mode: forwards;
+      /*opacity: 1;*/
+}
+
+@keyframes tlinemove{
+    0% {left:-100%;}
+    25% {left:0%;}
+    50% {left:0%;}
+    100% {left:200%;}
+}
+@keyframes ttextshow{
+    0% {opacity: 0;}    
+    100% {opacity:1;} 
+}
+
+.textTitleLine{
+    stroke:#E92429;
+    stroke-width:100%;
+}
+
+
+/* more */
+.moreProject{
+   padding-top:8%;
+   padding-bottom:8%;
+}
+.moreProjectTitle{
+    font-size: 52px;
+    text-align:center;
+    margin-bottom: 8%;
+    color:#e92429;
+}
+

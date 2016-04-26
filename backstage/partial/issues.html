@@ -1,0 +1,20 @@
+<div class="container" >
+
+	<a ui-sref="issue_create">
+		<button type="button" class="btn btn-danger pull-right">+New</button>
+	</a>
+	
+	<div class="col-md-12 contentArea"  ng-repeat="item in items">
+		<div class="pull-right">
+			{{$index}}</div>
+		<h1>{{item.issue_number}}/  {{item.title}}</h1>
+		<div>
+			<a ui-sref="issue_detail({pid:item.sid})">
+				<button type="button" class="btn btn-info">Edit</button>
+			</a>       
+
+			<button class="btn" ng-click="removeIssue(item.sid)"><span class="glyphicon glyphicon-remove"></button>			
+		</div>
+	</div>
+
+</div>

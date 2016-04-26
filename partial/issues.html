@@ -1,0 +1,26 @@
+
+<div class="headerBack issueHeader hideToScroll"
+ 	 when-visible="animateElementIn"
+	 when-not-visible="animateElementOut">
+	<!-- <div class="contentImage">
+		<img class="fullImage" src="image/issues/title.jpg" style="width:100%"/>
+		</div>	 -->
+	<div class="headText artgitalRed">Issues</div>		
+	<div class="headArea titleFont vcenterWrap">
+		<div class="preText headTitle vcenterCell">Coolest insight brings
+limitless ideas!</div>		
+	</div>	
+</div>
+
+<div class="issueContainer">
+
+<div class="thumbnail animate-repeat hideToScroll" 
+	 ng-repeat="item in items"
+	 ng-class="$index<2?'col-md-6':'col-md-3'"
+	 when-visible="animateElementIn"
+	 when-not-visible="animateElementOut">
+     <ag-issue-caption item-info="item" item-size="large" ng-if="$index<2"></ag-issue-caption>      
+     <ag-issue-caption item-info="item" ng-if="$index>=2"></ag-issue-caption>      
+</div>
+
+</div>

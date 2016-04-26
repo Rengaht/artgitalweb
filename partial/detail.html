@@ -1,0 +1,86 @@
+
+<div class="container-fluid">
+<div class="detailHead">
+	<div class="image3by2 contentImage">
+		<img class="fullImage" ng-src="{{project.overview.title_image}}" />
+	</div>
+	<div class="detailTitleArea">
+		<div class="projectLogoWrap">
+			<img class="projectLogoImage" ng-src="{{project.overview.logo_image}}" />
+		</div>
+		<div class="projectTitle preText titleFont">{{project.overview.project_name}}</div>
+		<div class="projectDescript">專案客戶 : {{project.overview.customer_name}}</br>
+		   專案類型 : {{getTagNameList(project.overview.tag)}}</div>
+
+		<img src="image/btn_play_empty.png" class="detailScroll" ng-click="gotoText(textList[0])"/>
+	</div>
+</div>
+
+<div ng-repeat="sub in project.detail" ng-switch="sub.type" 
+	class="detailContent hideToScroll"
+	ng-class="(sub.type=='text')?'detailTextWrap':''"
+	when-visible="animateElementIn"
+	when-not-visible="animateElementOut">
+
+		
+		<div ng-switch-when="text" id="{{sub.title}}">
+			<div when-visible="animateCircleIn"
+				when-not-visible="animateCircleOut" 
+				class="hidden-sm hidden-xs"
+				style="display:inline-block;">
+			<ag-detail-circle item-list="textList" 
+							item-show="{{getTextIndex(sub.title)}}"
+							go-text="gotoText"></ag-detail-circle>
+			</div>
+			<div class="col-md-9 contentText">
+				<div class="contentTitle artgitalRed"
+					when-visible="animateTitleIn"
+					when-not-visible="animateTitleOut">
+					
+					<p class="textTitleText titleFont">{{sub.title}}</p>
+					<div class="textTitleLineContainer">
+						<svg class="textTitleLineContainer">
+						<line x1="0" y1="50%" x2="100%" y2="50%" class="textTitleLine"/>						
+						</svg>
+					</div>
+				</div>
+				<p class="preText">{{sub.text}}</p>
+			</div>
+		</div>
+		<div ng-switch-when="image_1">
+			<div class="col-md-12 contentImage">
+				<div class="image2by1">
+					<img ng-src="{{sub.image_src}}" ng-attr-id="{{'image_'+$index}}"/>
+				</div>
+			</div>
+		</div> 
+		<div ng-switch-when="image_2">
+			<div class="col-md-6 contentImage">
+				<div class="image4by3">
+					<img ng-src="{{sub.image_src_1}}" ng-attr-id="{{'image_'+$index+'_1'}}"/>
+				</div>
+			</div>
+			<div class="col-md-6 contentImage">
+				<div class="image4by3">
+					<img ng-src="{{sub.image_src_2}}" ng-attr-id="{{'image_'+$index+'_2'}}"/>
+				</div>
+			</div>
+		</div>
+		<div ng-switch-when="video">
+			<div class="videoWrapper">
+  				<iframe ng-src="{{sub.video_src | trusted }}" frameborder="0"></iframe>
+  			</div>
+		</div>
+	
+</div>
+</div>
+
+<div class="container-fluid moreProject hideToScroll"
+	when-visible="animateElementIn"
+	when-not-visible="animateElementOut">
+	<h1 class="moreProjectTitle titleFont">More Projects</h1>
+	<div  ng-class="selectTag=='highlight'?'col-md-6':'col-md-3'"
+		 class="thumbnail animate-repeat" ng-repeat="item in relatedItems">
+	     <ag-list-caption item-info="item" item-tag="{{getTagName(item.tag)}}"></ag-list-caption>      
+	</div>
+</div>

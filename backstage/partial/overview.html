@@ -1,0 +1,40 @@
+<h1>專案簡介</h1>
+
+<div class="ContentArea">
+<label>客戶名稱</label>
+    <input type="text" name="name" ng-model="project.overview.customer_name" required>
+</br>
+<label>專案名稱</label>
+    <input type="text" name="name" ng-model="project.overview.project_name" required>
+</div>
+
+<div class="ContentArea">
+	<input type="checkbox" ng-model="project.overview.is_highlight" ng-true-value="'1'" ng-false-value="'0'">HighLight(放首頁)
+	</br>
+
+	<div class="btn-group-vertical">
+	<div ng-repeat="i in [1,2,3,4,5]">
+	  <label>分類 {{i}}</label>
+	  <select ng-model="project.overview.tag[$index]">
+	  	<option value="" ng-show="i>1" >Null | 無</option>
+	  	<option ng-repeat="tag in tags" value="{{tag.id}}">{{tag.en}} | {{tag.ch}}</option>
+	  </select>
+	</div>
+	</div>
+</div>
+
+
+<div class="ContentArea">
+	<ag-image-uploader image-info="縮圖 (1:1)" image-object="thumb_flow" image-url="{{correctPath(project.overview.thumb_image)}}"></ag-image-uploader>
+</div>
+<div class="ContentArea">
+	<ag-image-uploader image-info="大圖 (3:2)" image-object="title_flow" image-url="{{correctPath(project.overview.title_image)}}"></ag-image-uploader>
+</div>
+<div class="ContentArea" style="background-color: black;">
+	<ag-image-uploader image-info="Logo" image-object="logo_flow" image-url="{{correctPath(project.overview.logo_image)}}"></ag-image-uploader>
+</div>
+
+
+<button class="btn btn-danger pull-right" ng-click="createProject()">GO!</button>
+
+

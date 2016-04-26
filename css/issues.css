@@ -1,0 +1,60 @@
+.issueHeader{
+	background-image: url(../image/issues/title.jpg);
+	/*padding-bottom: 800px;*/
+}
+.issueContainer{
+	margin: 0;
+}
+.issueTitle{
+	font-size:2em;
+	display:block;	
+	margin: 20px auto;
+}
+.issueContent>img{
+	display:block;
+	margin: 0px auto;
+}
+
+.issueCaptionTag{
+	font-size: 22px;
+	margin-top: 10%;
+	margin-bottom: 0;
+}
+.issueCaptionTag.large{
+	font-size: 36px;	
+}
+.issueCaptionTitle{
+	font-size: 32px;
+	margin-top: 5px;
+	margin-bottom: 0;
+}
+.issueCaptionTitle.large{
+	font-size: 48px;
+}
+.issueCaptionText{
+	margin:10px auto;
+	font-size: 14px;
+}
+.issueCaptionText.large{
+	font-size: 24px;
+}
+
+.simpleChineseButton{
+
+	display: inline-block !important;
+	margin-right: auto;
+	margin-left: auto;
+
+	width:55px;
+	height:55px;
+	border:0;
+	outline: none;
+	cursor: pointer;
+
+	background-image:url("../image/btn_sch.png");
+	background-position: left center;
+	/*background-size:200% 100%;*/
+}
+.simpleChineseButton:hover{
+	background-position: right center
+}

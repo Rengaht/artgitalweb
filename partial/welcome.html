@@ -1,0 +1,39 @@
+
+
+
+<div class="container">
+
+<div class="headerBack welcomeHeader hideToScroll"
+ 	 when-visible="animateElementIn"
+	 when-not-visible="animateElementOut">
+	<!-- <div class="headImage">
+		<img class="fullImage" src="image/welcome/title.jpg" style="width:100%"/>
+	</div> -->
+	
+	<div class="headText artgitalRed">Welcome</div>		
+
+	<div class="headArea titleFont vcenterWrap">
+		<div class="preText headTitle vcenterCell">We integrate technology,
+interactivity,
+entertainment and you.</div>		
+	</div>	
+</div>
+<!-- <div class="welcomeTitle titleFont">
+<span class="artgitalRed">We Do</span> ART + Digital
+</div>
+ -->
+
+<div ng-class="$index<2?'col-md-6':'col-md-3'"	 
+	 class="thumbnail animate-repeat hideToScroll" 
+	 ng-repeat="item in items |filter:{is_highlight:'1'}"
+	 when-visible="animateElementIn"
+	 when-not-visible="animateElementOut">
+	  <!-- ng-style="getPosition($index)"> -->
+	 <ag-list-caption item-info="item" item-tag="{{getTagName(item.tag)}}"
+	 	  item-size="large" ng-if="$index<2"></ag-list-caption>
+	 <ag-list-caption item-info="item" item-tag="{{getTagName(item.tag)}}"
+	 	   ng-if="$index>=2"></ag-list-caption>
+</div>
+
+
+</div>

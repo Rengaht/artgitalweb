@@ -1,0 +1,37 @@
+<div class="container-fluid">
+
+
+<div class="headerBack serviceHeader">
+	
+	<div class="headText artgitalRed">Services</div>		
+
+	<div class="headArea titleFont vcenterWrap">
+		<div class="preText headTitle vcenterCell">You dream,
+we play!</div>		
+	</div>	
+</div>
+
+<div class="col-md-8 serviceBlock">
+	<div class="serviceTitle titleFont">量身打造互動行銷方案</div>
+	<div class="serviceText">提供整合互動科技、行動裝置及社群結合的完整方案，為您的產品/品牌創造不同與以往的全新行銷體驗。</div>
+
+	<div class="serviceTitle titleFont">跨領域的技術整合服務</div>
+	<div class="serviceText">全方位的整合服務，將視覺概念、軟體設計及空間規劃結合，作一完美呈現。</div>
+
+	<div class="serviceTitle titleFont">完整的專案分析報告</div>
+	<div class="serviceText">依照數據化的分析報告，更精準掌握專案所創造的行銷效益。</div>
+</div>
+
+
+
+</div>
+
+<div class="container-fluid moreProject hideToScroll"
+	when-visible="animateElementIn"
+	when-not-visible="animateElementOut">
+	<h1 class="moreProjectTitle titleFont">More Projects</h1>
+	<div class="col-md-3 thumbnail animate-repeat" ng-repeat="item in relatedItems">
+	     <ag-list-caption item-info="item" item-tag="{{getTagName(item.tag)}}"></ag-list-caption>      
+	</div>
+</div>
+

@@ -1,0 +1,60 @@
+
+
+<div class="navbar tagNavBar titleFont" role="navigation">
+   <div class="navbar-header">
+   	 <div class="navbar-brand tagNavText">Choose:</div>
+      <button type = "button" class ="navbar-toggle" 
+         data-toggle = "collapse" data-target="#tagbar-collapse" aria-expanded="false">
+         <span class = "sr-only">Toggle navigation</span>
+         <span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true" style="color:#fff"></span>
+      </button>      
+    </div>
+
+    <div class="collapse navbar-collapse" id="tagbar-collapse">        
+        <ul class="nav nav-justified">        
+  
+            <li class="tagButton" ng-click="setTag('')">
+            	<div class="tagEnglish" ng-class="selectTag==''?'tagEnglish-show':''"><div class="tagEnglishText">All</div></div>
+            	<div class="tagChinese" ng-class="selectTag==''?'tagChinese-show':''">總覽</div>
+            </li>
+            <li class="tagButton" ng-repeat="tagg in tags" ng-click="setTag(tagg.id)">            	
+            	<div class="tagEnglish" ng-class="selectTag==tagg.id?'tagEnglish-show':''" > 
+            		<div class="tagEnglishText">{{tagg.en}}</div>
+            	</div>
+            	<div class="tagChinese" ng-class="selectTag==tagg.id?'tagChinese-show':''"> {{tagg.ch}}</div>
+            </li>            
+        </ul>
+
+    </div>
+  	  
+</div>
+
+
+
+
+
+<div class="container clearfix portfolioGridWrap" ng-style="{'height':Math.ceil((items|filter:{tag:selectTag}).length/colNum)*colWidth+'px'}">
+ <div  class="portfolioGridCell thumbnail animate-repeat hideToScroll" 
+      ng-repeat="item in items | search: selectTag"
+      ng-style="getPosition($index)"
+      when-visible="animateElementIn"
+      when-not-visible="animateElementOut"
+      delay-percent="0.1">
+     <ag-list-caption item-info="item" item-tag="{{getTagName(item.tag)}}"></ag-list-caption>      
+</div>
+ 
+
+
+</div>
+
+<div class="container workArea clearfix hideToScroll"
+      when-visible="animateElementIn"
+      when-not-visible="animateElementOut">
+  <div class="artgitalRed titleFont workTitle">Want to work with us?</div>
+  <a ui-sref="contact">
+    <img src="image/btn_play_empty.png" class="yasButton hcenter">
+  </a>
+</div>
+
+
+

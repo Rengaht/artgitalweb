@@ -1,0 +1,25 @@
+ <img class="fullImage" ng-src="{{itemInfo.thumb_image}}"/>
+	<a ui-sref="pdetail({pid:itemInfo.id})">
+	<div class="listCaption">
+		<div class="listBackCircle vcenterWrap">
+
+			<div class="acContainer">
+				<div class="acHalfClip"><div class="acHalfcircle acClipped"></div></div>
+			    <div class="acHalfCircle acFixed"></div>
+		 	</div>
+		 	
+			<div class="vcenterCell">				
+				<p  class="titleFont"
+					ng-class="'listCaptionTag '+'{{itemSize}}'">		
+						    {{itemTag}}</p>
+				<h1 class="titleFont"
+					ng-class="'listCaptionTitle '+'{{itemSize}}'">	
+					{{itemInfo.customer_name}}</h1>
+		    	<p class="preText"
+		    	   ng-class="'listCaptionText '+'{{itemSize}}'">{{itemInfo.project_name}}</p>	    
+		    	<img src="image/btn_play_empty.png" class="listPlayButton">			    
+	    	</div>
+		</div>				
+		
+	</div>
+	</a>       

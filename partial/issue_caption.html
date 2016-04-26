@@ -1,0 +1,31 @@
+ <img class="fullImage" ng-src="{{itemInfo.thumb_image}}"/>
+	
+	<div class="listCaption">
+		<div class="listBackCircle vcenterWrap">
+
+			<div class="acContainer">
+				<div class="acHalfClip">
+					<div class="acHalfcircle acClipped"></div>
+				</div>
+			    <div class="acHalfCircle acFixed"></div>
+		 	</div>
+		 	
+			<div class="vcenterCell">				
+				<p  class="titleFont"
+					ng-class="'issueCaptionTag '+'{{itemSize}}'">artgital Issue</p>
+				<h1 class="titleFont"
+					ng-class="'issueCaptionTitle '+'{{itemSize}}'">	{{itemInfo.issue_number}}</h1>
+		    	<p class="preText"
+		    		ng-class="'issueCaptionText '+'{{itemSize}}'">{{itemInfo.title}}</p>	
+		    	<a ui-sref="issue_detail({pid:itemInfo.sid})">
+		    		<img src="image/btn_play_empty.png" class="listPlayButton">
+		    	</a>
+
+		    	<a ui-sref="issue_detail({pid:itemInfo.sch_sid})" ng-if="itemInfo.hasSCH" style="margin-left:8px">		    
+		    		<img src="image/btn_play_empty.png" class="simpleChineseButton">
+		    	</a>
+		    </div>
+		</div>				
+		
+	</div>
+	

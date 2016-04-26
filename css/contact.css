@@ -1,0 +1,140 @@
+.contactHeader{
+	background-image: url(../image/contact/title.jpg);	
+	/*padding-bottom:800px;*/
+}
+.contactTitle{
+	font-size:30px;	
+	margin-top: 20px;
+}
+.contactText{
+	/*padding-right: 30%;*/
+	padding-top: 30px;
+	font-size:16px;
+}
+.contactEmail{
+	padding-top: 20px;
+	padding-bottom: 50px;
+	font-size: 24px;
+}
+.hiTitle{
+	font-size: 60px;
+	padding-top: 50px;
+}
+
+.jobArea{	
+	width: 100%;
+	display: inline-block;
+}
+.jobText{
+	margin:50px auto;
+	font-size:20px;
+}
+.jobTitle{
+	font-size:32px;
+	border-bottom: 1px solid transparant;	
+	color:black;	
+}
+.jobDetail{
+	color:white;
+	display: none;
+	opacity: 0;
+}
+
+.jobWrap{
+	float:left;
+	position: relative;
+	width:100%;
+	padding-bottom: 100%;
+	margin: 1px;
+	background-color:#b2b3b7; 
+	overflow: hidden;
+	cursor:pointer;
+}
+.jobCell{
+	position: absolute;
+	width:100%;
+	height:100%;
+	padding:20px;
+}
+.jobWrap:hover{
+	background-color:black; 	
+}
+.jobWrap:hover .jobTitle{
+	color:white;
+	padding-bottom: 15px;
+	border-bottom: 1px solid red;
+	transition: .3s ease-in-out;
+}
+.jobWrap:hover .jobDetail{
+	display:block;
+	padding-top: 15px;
+	opacity: 1;
+	transition: .3s ease-in-out;
+
+}
+
+.contactEmail a:hover{	
+	text-decoration: none;
+	color:#f40009;
+}
+.emailLink{
+	position: relative;
+	overflow: hidden;
+	display: inline-block;
+	padding-bottom: 12px;
+}
+.contactEmail a:hover .navbarAnimLine{
+	left:0;
+	transition: .3s;
+}
+.emailLine{
+	margin-top: 2px;
+}
+
+.emailScroll{
+	
+	cursor: pointer;
+
+	width:47px;
+	height:68px;
+    border:0;
+    outline: none;
+
+    background-image:url("../image/email.png");
+    background-position: 0px 0px;
+    background-repeat: no-repeat;
+}
+.emailScroll:hover{
+	background-position: -47px 0px;
+}
+
+.contactSocialWrap{
+	padding-bottom: 200px;
+	float:right;
+}
+.contactSocialIcon{
+	display:inline-block;
+	
+	width:30px;
+	height:30px;
+	margin:20px;
+
+	background-repeat: no-repeat;
+	background-size:200% 100%;
+	background-position: left center;
+}
+.contactSocialIcon:hover{
+	background-position: right center;		
+}
+.contactSocialIcon.fbIcon{
+	background-image:url("../image/contact_fb.png");
+}
+.contactSocialIcon.vimeoIcon{
+	background-image:url("../image/contact_vimeo.png");
+}
+.contactSocialIcon.youtubeIcon{
+	background-image:url("../image/contact_youtube.png");
+}
+.contactSocialIcon.dailymotionIcon{
+	background-image:url("../image/contact_dailymotion.png");
+}

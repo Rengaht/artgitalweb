@@ -1,0 +1,35 @@
+/*.aboutHeader{
+	position:relative;
+    top:0;
+    left:0;
+    width:100%;
+    height:auto;
+}
+*/
+.aboutHeader{
+	background-image: url(../image/about/title_1.jpg);
+
+}
+
+.aboutTitleWrap{
+	
+	padding: 300px 30px;
+}
+
+.aboutTextArea{	
+	left:5%;
+    width:65%;
+    padding:50px 0px;
+}
+
+.aboutBottomText{
+	position: relative;
+	
+}
+.aboutTextH1{
+	font-size:55px;
+}
+.aboutTextH2{
+	font-size:20px;
+	margin-top: 20px;
+}

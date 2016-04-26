@@ -1,0 +1,36 @@
+@media (max-width: 992px){
+	.nav-justified{
+		padding-bottom: 20px;
+	}
+	.nav-justified>li{
+		display: block;
+		width:auto;
+		padding-bottom:0px;
+		padding-top:12px;
+	}
+	.tagNavBar{
+		background-color: #000;
+	}
+	.tagEnglish{
+		display: inline-block;
+		height:auto;
+		margin-right: 6px;	
+	}
+	.tagChinese{
+		display: inline-block;
+		opacity: 1;
+		
+	}	
+	.tagButton{
+		display: block;
+		background-color:#000;
+		color:#fff;			
+	}
+	.tagButton:hover{
+		border-bottom:1px solid #fff;
+		padding-bottom:16px;
+		color:#fff;		
+		transition: .5s;
+	}
+
+}

@@ -1,0 +1,82 @@
+<div class="container-fluid">
+
+
+<div class="headerBack contactHeader">
+	<!-- <div class="contentImage">
+		<img class="fullImage" src="image/contact/title.jpg" style="width:100%"/>
+		</div> -->
+	<div class="headText artgitalRed">Contact / Jobs</div>		
+	<div class="headArea titleFont vcenterWrap">
+		<div class="preText headTitle vcenterCell">Technology expands
+art...and you expand us!</div>
+	</div>
+</div>
+
+<div class="preText hcenter jobText">你的心中有滿滿的熱血，腦袋裡有各種天馬行空的點子無處發揮嗎？來吧！是時候燃燒你的小宇宙了！
+artgital將和你一起用互動科技，把不可能化為可能！
+</div>
+<div class="hcenter" style="padding: 50px">
+	<img src="image/btn_play_empty.png" class="emailScroll" ng-click="scrollToEmail()"/>
+</div>
+
+<div class="jobArea clearfix hideToScroll"
+	 when-visible="animateElementIn"
+	 when-not-visible="animateElementOut">
+	<div  ng-repeat="job in items" class="hideToScroll col-md-4"	
+		  when-visible="animateElementIn"
+		  when-not-visible="animateElementOut"
+		  style="padding: 2px;">
+		<a href="https://www.104.com.tw/jobbank/custjob/index.php?r=cust&j=3b39416a33353d662f313962373d35186282828273f45356795j98">
+		<div class="jobWrap">
+		<div class="jobCell">
+			<div class="vcenterWrap" style="width:100%;height:100%;">
+				<div class="vcenterCell">
+					<div class="jobTitle titleFont hcenter">{{job.title}}</div>
+					<div class="preText jobDetail hcenter">{{job.detail}}</div>
+				</div>			
+			</div>		
+		</div>
+		</div>
+		</a>
+	</div>
+</div>
+
+<div class="hcenter hiTitle titleFont">Come and say Hi!</div>
+
+<div class="hideToScroll hcenter"
+	when-visible="animateElementIn"
+	when-not-visible="animateElementOut"
+	id="_contact_info">
+
+<div class="preText contactText">TEL/02 2363 3183    FAX/02 2363 3195</div>
+<div class="preText contactText">Monday - Friday: 9:30am - 6:30pm</div>
+
+<div class="preText contactText">106 台北市大安區泰順街38巷3弄1號1樓
+1F., No.1, Aly. 3, Ln.38, Taishun St., Da' an Dist., Taipei City 106, Taiwan</div>
+
+
+<div class="contactEmail hideToScroll"
+	when-visible="animateElementIn"
+	when-not-visible="animateElementOut">
+	<a href="mailto:service@artgital.com" class="artgitalRed titleFont emailLink">service@artgital.com
+		<svg class="navbarAnimLine emailLine">
+		  <line x1="0" y1="0" x2="100%" y2="0" class="navbarLine"/>
+		</svg>
+	</a>
+</div>
+
+<div class="contactSocialWrap hideToScroll"
+	 when-visible="animateElementIn"
+	 when-not-visible="animateElementOut">
+
+	 <a href="https://www.facebook.com/Artgital" target="_blank"><div class="contactSocialIcon fbIcon"></div></a>
+	 <a href="https://www.youtube.com/channel/UC8S6iwWtLu2fkjZBNHuZiag" target="_blank"><div class="contactSocialIcon youtubeIcon"></div></a>
+	 <a href="http://www.dailymotion.com/service42" target="_blank"><div class="contactSocialIcon dailymotionIcon"></div></a>
+	 
+</div>
+
+</div>
+
+
+</div>
+

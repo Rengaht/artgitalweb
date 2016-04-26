@@ -1,0 +1,26 @@
+
+<div flow-init="{singleFile:true}"
+	 flow-file-added="!!{png:1,jpg:1,jpeg:1}[$file.getExtension()]" 
+	flow-name="imageObject.flow"
+	ng-style="imageInfo=='Logo'?{'background':'black'}:''">
+	
+	 <label>上傳_{{imageInfo}}</label>
+<!-- {{imageObject.flow.files.length}} -->
+	<div class="thumbnail" ng-show="!$flow.files.length" style="background:transparent;">
+	
+	{{imageUrl}}
+	  <img ng-src="{{imageUrl}}" ng-if="imageUrl!==''"/>
+	  <img ng-src="image/no-image.png" ng-if="imageUrl==''"/>
+	</div>
+	<div class="thumbnail" ng-show="$flow.files.length" style="background:transparent;">
+	  <img flow-img="$flow.files[0]" />
+	</div>
+
+	<span class="btn btn-default" ng-show="!$flow.files.length" flow-btn>Upload</span>
+	<span class="btn btn-default" ng-show="$flow.files.length" flow-btn>Change</span>
+	<span class="btn btn-default" ng-show="$flow.files.length" ng-click="$flow.cancel()">Remove</span>
+
+	
+
+</div>
+ 

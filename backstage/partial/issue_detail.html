@@ -1,0 +1,22 @@
+<h1>Issue內容</h1>
+
+<div class="ContentArea">
+	<label>編號</label>
+	    <input type="text" name="number" ng-model="item.issue_number" required>
+	</br>
+	<label>標題</label>
+	    <input type="text" name="title" ng-model="item.title" required>
+</div>
+
+<div class="ContentArea">
+	<ag-image-uploader image-info="縮圖 (1:1)" image-object="thumb_flow" image-url="{{item.thumb_image}}"></ag-image-uploader>
+</div>
+
+<div class="ContentArea">
+	<label>內容</label>
+	<textarea rows="15" style="width:100%" ng-model="item.content"></textarea>
+</div>
+<button class="btn btn-danger pull-right" ng-click="createIssue()">送出</button>
+
+
+<div class="loadingSpin" ng-show="loading"></div>

@@ -1,0 +1,60 @@
+<html>
+<head>
+
+    <!-- CSS (load bootstrap) -->
+    <link rel="stylesheet" href="../include/bootstrap-3.3.6/css/bootstrap.min.css">
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+   <script src="../include/jquery/jquery-1.12.1.min.js"></script>
+    
+    <script src="../include/bootstrap-3.3.6/js/bootstrap.min.js"></script>
+
+    <style>
+    
+    </style>
+
+    <!-- JS (load angular, ui-router, and our custom js file) -->
+    <script src="../include/angular/angular.min.js"></script>
+    <script src="../include/angular/angular-animate.min.js"></script>
+
+    <!--<script src="http://code.angularjs.org/1.2.13/angular-route.js"></script>-->
+    <script src="../include/angular/angular-ui-router.min.js"></script>
+   
+   <!-- ng-flow for update file-->
+   <script src="include/ng-flow/dist/ng-flow-standalone.min.js"></script>
+
+
+
+    <script src="js/app.js"></script>
+    <script src="js/portfolio_control.js"></script>
+    <script src="js/issue_control.js"></script>
+
+    <link rel="stylesheet" href="css/app.css">
+    
+
+    <!-- for preview -->
+    <link rel="stylesheet" href="../css/app.css">
+    <link rel="stylesheet" href="../css/detail.css">
+
+</head>
+<body ng-app="routerApp">
+<div class="container">
+
+
+<nav class="navbar" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-brand">Edit:</div>
+        <ul class="nav navbar-nav">            
+            <li><a ui-sref="project_list">Portfolio</a></li>
+            <li><a ui-sref="issues">Issues</a></li>
+            <!-- <li><a ui-sref="news">News</a></li> -->
+        </ul>
+    </div>
+</nav>
+
+<!-- MAIN CONTENT -->
+<!-- THIS IS WHERE WE WILL INJECT OUR CONTENT ============================== -->
+<div ui-view></div>
+
+</div>
+
+</body>

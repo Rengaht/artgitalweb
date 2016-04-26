@@ -1,0 +1,228 @@
+/*tag-navbar*/
+
+.tagButton{
+	cursor:pointer;	
+}
+
+.tagNavText{
+	background-color:#000;
+	color:#fff;	
+	font-size: small;
+	/*padding-left:5px;
+	padding-right:5px;*/
+}
+@media (min-width: 992px){
+	.tagButton{
+		white-space: normal;
+		font-size: small;
+		/*text-align:left;*/
+		position: relative;
+		margin:0;
+		height:40px;
+		vertical-align: middle;
+		/*background-color:#000;*/
+		/*border:1px #000 solid;*/
+		/*color:#fff;*/
+		
+	}
+	.tagEnglish{
+		
+		background-color:#000;
+		color:#fff;
+		
+		padding:0px 6px;
+
+		display: table;
+		width:100%;
+		height:50px;
+	}
+	.tagEnglishText:before{
+		
+		display: inline-block;
+		vertical-align: middle;
+		height:100%;
+		width:0;
+		transition: .5s;
+	}
+	.tagEnglishText{
+		display: table-cell;
+		vertical-align: middle;	
+		float:none;
+	}
+
+	.tagButton:hover >.tagEnglish,
+	.tagButton:focus >.tagEnglish,
+	.tagEnglish-show{
+		background-color: #fff;
+		color:#000;
+		transition: .5s;
+	}
+	.tagChinese{
+		opacity: 0;	
+		margin-bottom: 20px;
+		padding: 6px;
+		transition: .5s;
+	}
+	.tagButton:hover >.tagChinese,
+	.tagButton:focus >.tagChinese,
+	.tagChinese-show{
+		opacity: 1;
+		transition: .5s;
+		color:#E92429;
+		background-color: #fff;
+		margin-top: 20px;
+		margin-bottom: 0px;
+	}
+}
+
+
+/*thumbnail-list*/
+.listCaption{
+    position:absolute;
+    top:0;
+    right:0;
+    background:rgba(0,0,0, 0.5);
+    width:calc(100% - 20px);
+    height:calc(100% - 20px);
+    margin:10px;
+    padding:5%;
+
+    text-align: center;
+    color:#fff !important;
+    z-index:2;
+
+ /*   border-radius: 100%;
+    -moz-border-radius: 100%;
+    -webkit-border-radius: 100%;*/
+
+    opacity: 0;
+    /*transition: .3s;*/
+}
+.listCaption:hover{
+	opacity: 1;
+	
+	/*border-radius: 0;
+    -moz-border-radius: 0;
+    -webkit-border-radius: 0;*/
+
+	transition: .3s;
+
+
+}
+
+.listPlayButton{
+
+	display: inline-block !important;
+	
+	width:55px;
+	height:55px;
+	border:0;
+	outline: none;
+
+	background-image:url("../image/btn_play.png");
+	background-position: left center;
+	/*background-size:110px 55px;*/
+}
+.listPlayButton:hover{
+	background-position: right center
+}
+
+.listBackCircle{
+
+	/*opacity: 0;*/
+	border:1px solid rgba(255,255,255,0);
+	width:100%;
+	height:100%;
+
+
+    z-index: -1;
+}
+
+.listCaption>.listBackCircle>.vCenterCell{
+	opacity: 0;
+}
+.listCaption:hover .listBackCircle>.vCenterCell{
+	opacity: 1;
+	transition: .3s 0s ease-in-out;
+}
+
+.listCaptionTag{
+	font-size: 12px;
+
+	margin-top: 10%;
+	margin-bottom: 0;
+}
+.listCaptionTag.large{	
+	font-size: 24px;	
+}
+.listCaptionTitle{
+	
+	font-size: 32px;
+
+	margin-top:10%;	
+	margin-bottom: 0;
+}
+.listCaptionTitle.large{
+	font-size: 52px;	
+}
+
+.listCaptionText{
+	margin:5% auto;
+	font-size: 18px;
+}
+.listCaptionText.large{
+	font-size: 24px;
+}
+
+.animate-repeat.ng-leave.ng-leave-active,
+.animate-repeat.ng-move,
+.animate-repeat.ng-enter {
+    opacity:0;
+    transition: .1s ease-in-out;
+}
+
+.animate-repeat.ng-leave,
+.animate-repeat.ng-move.ng-move-active,
+.animate-repeat.ng-enter.ng-enter-active {
+    opacity:1;
+    transition: .1s ease-in-out;
+}
+.portfolioGridWrap{
+	position: relative;
+}
+.portfolioGridCell{
+	float:none;
+	position:absolute;	
+	transition: .2s ease-in-out;
+	width:25%;
+}
+
+
+.workArea{
+	position: relative;
+	margin-top: 50px;
+	margin-bottom: 100px;
+}
+.workTitle{
+	font-size: 40px;
+	text-align: center;
+}
+.yasButton{
+
+	display: block;
+	margin-right: auto;
+	margin-left: auto;
+
+	width:55px;
+	height:55px;
+	border:0;
+	outline: none;
+	cursor: pointer;
+
+	background-image:url("../image/btn_yas.png");
+	background-position: left center;
+	/*background-size:200% 100%;*/
+}
+.yasButton:hover{
+	background-position: right center;
+}

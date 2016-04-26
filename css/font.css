@@ -1,0 +1,22 @@
+	
+@font-face{
+	font-family:artgitalWebTitle;	
+	src: url(../font/DFHeiStd-W9_0.otf);
+}
+@font-face{
+	font-family:artgitalWebTitle;
+	unicode-range:U+000-5FF, U+1e00-1fff, U+2000-2300;
+	src: url(../font/NotoSansHant-Bold.otf);
+  
+}
+
+@font-face{
+	font-family:artgitalWebText;	
+	src: url(../font/DFHeiStd-W5_0.otf);
+}
+@font-face{
+	font-family:artgitalWebText;
+	unicode-range:U+000-5FF, U+1e00-1fff, U+2000-2300;
+	src: url(../font/NotoSansHant-Regular.otf);
+	
+}

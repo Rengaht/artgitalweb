@@ -1,0 +1,63 @@
+
+/*bootstrap*/
+/**{
+	border-radius: 0 !important;
+}*/
+
+a:hover{
+    text-decoration: none;
+}
+
+.navbar { 
+	border-radius:0; 
+	padding:0px;
+	border:0;
+}
+.icon-bar {border:1px solid #444;}
+.thumbnail{
+	border:0px;
+	margin:0px;
+	padding:0px;
+
+}
+
+
+.navbar .navbar-nav >li{
+	padding-top: 20px;
+	padding-left:30px;
+	padding-right:30px;
+}
+.navbar .navbar-nav >li>a{
+	color:#000;
+	overflow: hidden;
+	/*padding-left:0px;
+	padding-right:0px;*/
+	/*border-bottom:1px solid #fff;*/
+	padding: 15px 0px;
+}
+.navbar .navbar-nav > li > a:hover,
+.navbar .navbar-nav > li > a:focus,
+.navbar .navbar-nav > li > a.active{
+    background-color: #FFF;
+    color: #E92429;
+/* 	border-bottom:1px solid #f00;
+ 	padding-bottom: 8px;*/
+
+ 	transition: .3s;
+}
+
+@media (min-width: 992px){	
+	.navbar-nav{
+		display:table;
+	}
+	.navbar-nav>li{
+		display:table-cell;
+		float:none;
+	}
+	
+}
+@media (max-width: 992px){
+	.navbar .navbar-nav >li{
+		padding-top: 0px;
+	}
+}

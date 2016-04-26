@@ -1,0 +1,101 @@
+<!-- <!DOCTYPE html> -->
+<html>
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+   <meta property="fb:app_id" content="194996280892626"/>
+   <meta property="og:title" content="artgital 藝次元互動科技"/>
+   <meta property="og:type" content="website"/>
+   <meta property="og:url" content="http://giraffe.artgital.com/artgital/"/>
+   <meta property="og:image" content="http://giraffe.artgital.com/artgital/image/fb_share.png"/>
+   <meta property="og:site_name" content="artgital.com"/>
+   <meta property="og:description" content="artgital 藝次元互動科技專注於設計互動式數位內容，人機互動裝置與軟硬體整合，成員多為跨領域之專家，擁有整合視覺美學、互動程式設計、硬體與軟體結合之豐富經驗，訴求為以客戶需求，整合多領域的技術，完美結合互動科技與藝術。">
+
+    <!-- CSS (load bootstrap) -->
+    <link rel="stylesheet" href="include/bootstrap-3.3.6/css/bootstrap.min.css">
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="include/jquery/jquery-1.12.1.min.js"></script>
+    
+    <script src="include/bootstrap-3.3.6/js/bootstrap.min.js"></script>
+
+    <style>
+    
+    </style>
+
+      <!-- JS (load angular, ui-router, and our custom js file) -->
+    <script src="include/angular/angular.min.js"></script>
+    <script src="include/angular/angular-animate.min.js"></script>
+    <script src="include/angular/angular-resource.min.js"></script>
+
+    <!--<script src="http://code.angularjs.org/1.2.13/angular-route.js"></script>-->
+    <script src="include/angular/angular-ui-router.min.js"></script>
+
+    <script src="include/angular-scroll/angular-scroll-animate.js"></script>
+    <script src="include/jquery-easing/jquery.easing.1.3.js"></script>
+
+   <script charset="utf-8" src="js/app.js"></script>
+    <script src="js/control.js"></script> 
+
+    <link rel="stylesheet" href="css/app.css">
+   
+</head>
+
+<!-- apply our angular app to our site -->
+<body ng-app="routerApp">
+
+<div class="container">
+
+
+<nav class="navbar" role="navigation" ng-init="navItems=[{sref:'about',name:'About'},
+                                                         {sref:'services',name:'Services'},
+                                                         {sref:'portfolio',name:'Portfolio'},
+                                                         {sref:'issues',name:'Issues'},
+                                                         {name:'Fan Page',url:'http://facebook.com/Artgital'},
+                                                         {sref:'contact',name:'Contact / Jobs'}]">
+    <div class="container-fluid">
+
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">
+        <img class="topLogo" alt="Artgital" src="image/home-logo.png">        
+      </a>
+      <button type = "button" class = "navbar-toggle" 
+         data-toggle = "collapse" data-target="#navbar-collapse" aria-expanded="false">
+         <span class = "sr-only">Toggle navigation</span>
+         <span class = "icon-bar"></span>
+         <span class = "icon-bar"></span>
+         <span class = "icon-bar"></span>
+      </button>      
+    </div>
+
+    <div class="collapse navbar-collapse" id="navbar-collapse">              
+        <ul class="nav navbar-nav navbar-right titleFont">
+            <li ng-repeat="item in navItems">
+              <a ui-sref={{item.sref}} ng-if="item.url===undefined" ui-sref-active="active" class="navbarText">{{item.name}}
+                <svg class="navbarAnimLine">
+                  <line x1="0" y1="0" x2="100%" y2="0" class="navbarLine"/>
+                </svg>
+              </a>
+              <a ng-href={{item.url}} target="_blank" ng-if="item.url!==undefined" class="navbarText">{{item.name}}
+                <svg class="navbarAnimLine">
+                  <line x1="0" y1="0" x2="100%" y2="0" class="navbarLine"/>
+                </svg>
+              </a>
+            </li>            
+        </ul>
+    </div>
+
+    </div>
+</nav>
+
+
+<!-- MAIN CONTENT -->
+<!-- THIS IS WHERE WE WILL INJECT OUR CONTENT ============================== -->
+<div ui-view></div>
+
+
+
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,16 @@
+<div class="col-md-3 vcenterWrap textCircle">
+	<div class="vcenterCell">
+	<div ng-repeat="item in itemList" class="hcenter"
+		 ng-class="$index==itemShow?'artgitalRed':''"
+		 ng-click="goText(item)">
+		 <div class="textInCircle" ng-class="($index==itemShow)?'':'textInCircleLink'">
+			{{item}}
+			<svg class="navbarAnimLine">
+	          <line x1="0" y1="0" x2="100%" y2="0" class="navbarLine"/>
+	        </svg>
+        </div>
+	</div>
+	</div>
+</div>
+<!-- items:{{itemList}}
+show:{{itemShow}} -->
