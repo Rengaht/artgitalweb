@@ -18,23 +18,28 @@ routerApp.controller('ListCtrl',function($scope,$window,$timeout,$filter,
     
     
     $scope.setTag=function(tag_name){
-        $scope.selectTag=tag_name;         
+        $scope.selectTag=tag_name;     
+        $timeout(function(){ angular.element($window).triggerHandler('resize')},200);    
     };
      // $scope.selfFilter=function(tag1,tag2){
     //     //console.log(tag1);
     //     if(tag1.match(tag2)){ return true}
     //     else{ return false}
     // };
-    $scope.getTagName=function(tag_id){        
+    $scope.getTagName=function(tag_id){       
+        if(tag_id===undefined) return;
+        if(parseInt(tag_id[0]===undefined)) return;
+        if(TagService.getTagName(parseInt(tag_id[0]))===undefined) return;
+
         return TagService.getTagName(parseInt(tag_id[0])).en;
     };
 
     //////  for responsive grid layout //////
     $scope.updateWidth=function(){
       var containerWidth=$('.portfolioGridWrap').width();
-      if(containerWidth>=900){
+      if(containerWidth>=1100){
         $scope.colNum=4;
-      }else if(containerWidth>=600){
+      }else if(containerWidth>=900){
         $scope.colNum=2;
       }else{
         $scope.colNum=1;
@@ -119,6 +124,7 @@ routerApp.controller('DetailCtrl',
         return tlist; 
     }
     $scope.getTagName=function(tag_id){        
+        
         return TagService.getTagName(parseInt(tag_id[0])).en;
     };
 

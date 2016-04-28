@@ -1,6 +1,19 @@
-routerApp.controller('IssueListCtrl',function($scope,$window,$http,DataUrlService){
+routerApp.controller('IssueListCtrl',function($scope,$window,$http,$sessionStorage,$cookies,DataUrlService){
    
-   
+     /* login */
+    // if(!$sessionStorage.loggedIn){
+    //     alert('Not logged in!');
+    //     $scope.$state.go('login');    
+    // }
+    // $window.onbeforeunload=function(){
+    //     $sessionStorage.$reset();
+    // };
+    if($cookies.get('artgitalBS')!='loggedIn'){
+        alert('Not logged in!');
+        $scope.$state.go('login');    
+    }
+
+
     $scope.items;
 
     $http.get(DataUrlService.all_issue_url).success(function(data){
@@ -43,8 +56,22 @@ routerApp.controller('IssueListCtrl',function($scope,$window,$http,DataUrlServic
 
 });
 
-routerApp.controller('IssueDetailCtrl',function($scope,$stateParams,$http,DataUrlService){
+routerApp.controller('IssueDetailCtrl',function($scope,$stateParams,$http,$window,$sessionStorage,$cookies,DataUrlService){
    
+
+   /* check login */
+    // if(!$sessionStorage.loggedIn){        
+    //     alert('Not logged in!');
+    //     $scope.$state.go('login');    
+    // }
+    // $window.onbeforeunload=function(){
+    //     $sessionStorage.$reset();
+    // };
+    if($cookies.get('artgitalBS')!='loggedIn'){
+        alert('Not logged in!');
+        $scope.$state.go('login');    
+    }
+
     $scope.item={'sid':null};
     
     $scope.thumb_flow={};
@@ -56,7 +83,10 @@ routerApp.controller('IssueDetailCtrl',function($scope,$stateParams,$http,DataUr
     if($stateParams.pid!==undefined){
         $scope.item.sid=$stateParams.pid;
         $http.get(DataUrlService.issue_url+$scope.item.sid).success(function(data){
-            if(data.result==1) $scope.item=data.issueFull;           
+            if(data.result==1){
+                $scope.item=data.issueFull;           
+                $scope.item.thumb_image=DataUrlService.correct_image_url+$scope.item.thumb_image;
+            } 
         });
     }
     

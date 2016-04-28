@@ -2,7 +2,7 @@
 var routerApp = angular.module('routerApp', ['ui.router','ngAnimate','ngResource','angular-scroll-animate','customFilters']);
 
 routerApp.factory('DataUrlService',function(){
-    var host_url='http://giraffe.artgital.com/artgital/';
+    var host_url='http://artgital.com/';
     return{
         tag_url: host_url+'s/website.php?active=getTag',
         all_p_url: host_url+'s/website.php?active=getAllProjects',
@@ -278,6 +278,23 @@ routerApp.directive('agIssueCaption',function(){
         }
     }
 });
+
+routerApp.directive("showWhenScrollUp",function($window){
+    return function(scope,element,attrs){
+         angular.element($window).bind("scroll", function(){
+            if(!scope.scrollPosition) scope.scrollPosition=0;
+            
+            if(this.pageYOffset>=scope.scrollPosition){
+                 scope.boolChangeClass=true;                 
+            }else{
+                 scope.boolChangeClass=false;                 
+            }
+            scope.scrollPosition=this.pageYOffset;
+            scope.$apply();
+        });
+    }
+});
+
 
 routerApp.run(['$anchorScroll', function($anchorScroll) {
   $anchorScroll.yOffset = 100;   // always scroll by 50 extra pixels

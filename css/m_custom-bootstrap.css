@@ -1,0 +1,26 @@
+@media (max-width: 992px){
+	.navbar .navbar-nav >li{
+		padding-top: 0px;
+	}
+	.navbar{
+		background: white;
+		/*font-size: 50px;*/
+	}		
+	
+	.mainWrap{
+		
+		width:100%;
+		padding:0;
+		padding-top:100px;
+		margin:0;
+	}
+	.hideMainNav{
+		opacity: 0;		
+	}
+	.glyphicon {
+    	font-size: 5vw;
+	}
+	.mainNavbar{
+		z-index: 200;
+	}
+}

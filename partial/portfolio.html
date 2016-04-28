@@ -1,6 +1,6 @@
 
 
-<div class="navbar tagNavBar titleFont" role="navigation">
+<div class="navbar tagNavBar titleFont navbar-fixed-top" role="navigation">
    <div class="navbar-header">
    	 <div class="navbar-brand tagNavText">Choose:</div>
       <button type = "button" class ="navbar-toggle" 
@@ -14,14 +14,14 @@
         <ul class="nav nav-justified">        
   
             <li class="tagButton" ng-click="setTag('')">
-            	<div class="tagEnglish" ng-class="selectTag==''?'tagEnglish-show':''"><div class="tagEnglishText">All</div></div>
-            	<div class="tagChinese" ng-class="selectTag==''?'tagChinese-show':''">總覽</div>
+            	<div class="tagEnglish" ng-class="selectTag==''?'tagEnglish-show':''"><div class="navbarText tagEnglishText">All</div></div>
+            	<div class="navbarText tagChinese" ng-class="selectTag==''?'tagChinese-show':''">總覽</div>
             </li>
             <li class="tagButton" ng-repeat="tagg in tags" ng-click="setTag(tagg.id)">            	
             	<div class="tagEnglish" ng-class="selectTag==tagg.id?'tagEnglish-show':''" > 
-            		<div class="tagEnglishText">{{tagg.en}}</div>
+            		<div class="navbarText tagEnglishText">{{tagg.en}}</div>
             	</div>
-            	<div class="tagChinese" ng-class="selectTag==tagg.id?'tagChinese-show':''"> {{tagg.ch}}</div>
+            	<div class="navbarText tagChinese" ng-class="selectTag==tagg.id?'tagChinese-show':''"> {{tagg.ch}}</div>
             </li>            
         </ul>
 

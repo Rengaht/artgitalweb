@@ -15,12 +15,12 @@ Array.prototype.clear = function() {
 
 
 /* for ng */
-var routerApp = angular.module('routerApp', ['ui.router','flow']);
+var routerApp = angular.module('routerApp', ['ui.router','flow','ngStorage','ngCookies']);
 
 /* all urls here */
 routerApp.factory('DataUrlService',function(){
 
-    var host_url='http://192.168.2.156/artgital/'
+    var host_url='http://artgital.com/'
 
     return{
         tag_url: host_url+'s/website.php?active=getTag',
@@ -33,7 +33,7 @@ routerApp.factory('DataUrlService',function(){
 
         backstage_url:host_url+'s/backstage.php',
 
-        image_correct_url:host_url
+        correct_image_url:host_url
     };
 
 });
@@ -160,9 +160,14 @@ routerApp.service('VideoTypeService',function($http){
 
 routerApp.config(function($stateProvider, $urlRouterProvider) {
     
-    $urlRouterProvider.otherwise('/project');
+    $urlRouterProvider.otherwise('/login');
     
     $stateProvider
+        .state('login', {
+            url: '/login',
+            templateUrl: 'partial/login.html',
+            controller:'LoginCtrl'
+        })
         
         // HOME STATES AND NESTED VIEWS ========================================
         .state('project_list', {
@@ -227,12 +232,7 @@ routerApp.config(function($stateProvider, $urlRouterProvider) {
             templateUrl: 'partial/issue_detail.html',
             controller:'IssueDetailCtrl'
         });
-
-        // .state('news', {
-        //     url: '/news',
-        //     templateUrl: 'partial/news.html'
-        //     // controller:'ContentCtrl'
-        // });
+       
         
 });
 routerApp.run(function($rootScope,$state,$stateParams){

@@ -1,6 +1,21 @@
-routerApp.controller('ListCtrl',function($scope,$window,$http,PortfolioService,DataUrlService){
+routerApp.controller('ListCtrl',function($scope,$window,$http,$sessionStorage,$cookies,PortfolioService,DataUrlService){
    
-    $scope.items=PortfolioService.getItems();
+    /* check login */
+    // if(!$sessionStorage.loggedIn){        
+    //     alert('Not logged in!');
+    //     $scope.$state.go('login');    
+    // }
+    // $window.onbeforeunload=function(){
+    //     $sessionStorage.$reset();
+    // };
+    // console.log($cookies.get('artgitalBS'));
+    if($cookies.get('artgitalBS')!='loggedIn'){
+        alert('Not logged in!');
+        $scope.$state.go('login');    
+    }
+
+    $scope.items=PortfolioService.getItems();  
+
    // console.log($scope.items);
     $scope.updateOrder=function(){
         var orderlist=[];
@@ -103,8 +118,23 @@ routerApp.controller('ListCtrl',function($scope,$window,$http,PortfolioService,D
 
 });
 
-routerApp.controller('OverviewCtrl',function($scope,$stateParams,$http,TagService,DataUrlService,ProjectParamService){
+routerApp.controller('OverviewCtrl',function($scope,$stateParams,$http,$window,$sessionStorage,$cookies,TagService,DataUrlService,ProjectParamService){
    
+
+    /* check login */
+    // if(!$sessionStorage.loggedIn){        
+    //     alert('Not logged in!');
+    //     $scope.$state.go('login');    
+    // }
+    // $window.onbeforeunload=function(){
+    //     $sessionStorage.$reset();
+    // };
+    if($cookies.get('artgitalBS')!='loggedIn'){
+        alert('Not logged in!');
+        $scope.$state.go('login');    
+    }
+
+
     $scope.project={'overview':null,'detail':null,'id':null};
     
     $scope.thumb_flow={};
@@ -128,7 +158,7 @@ routerApp.controller('OverviewCtrl',function($scope,$stateParams,$http,TagServic
     $scope.tags=TagService.getTags();
 
     $scope.correctPath=function(path){
-        return DataUrlService.image_correct_url+path;
+        return DataUrlService.correct_image_url+path;
     };
 
     $scope.createProject=function(){
@@ -224,10 +254,42 @@ routerApp.controller('OverviewCtrl',function($scope,$stateParams,$http,TagServic
 
 });
 
-routerApp.controller('DetailCtrl',function($scope,$stateParams,$http,$window,ProjectParamService,VideoTypeService){
+routerApp.controller('DetailCtrl',function($scope,$stateParams,$http,$window,$sessionStorage,$cookies,$timeout,
+                                            DataUrlService,ProjectParamService,VideoTypeService){
     
+    /* check login */
+    // if(!$sessionStorage.loggedIn){        
+    //     alert('Not logged in!');
+    //     $scope.$state.go('login');    
+    // }
+    // $window.onbeforeunload=function(){
+    //     $sessionStorage.$reset();
+    // };
+    if($cookies.get('artgitalBS')!='loggedIn'){
+        alert('Not logged in!');
+        $scope.$state.go('login');    
+    }
+
 
     $scope.project=ProjectParamService.findById($stateParams.pid)[0];  
+    /* fill-out image urls */
+    $timeout(function(){
+        if($scope.project===undefined) return;
+        if($scope.project.detail==null){
+            $scope.project.detail=[{"type":"text","title":"","text":""}];
+            return;
+        }
+        var len=$scope.project.detail.length;
+        for(var i=0;i<len;++i){
+          if($scope.project.detail[i].type=='image_1'){
+            $scope.project.detail[i].image_src=DataUrlService.correct_image_url+$scope.project.detail[i].image_src;
+          }else if($scope.project.detail[i].type=='image_2'){
+            $scope.project.detail[i].image_src_1=DataUrlService.correct_image_url+$scope.project.detail[i].image_src_1;
+            $scope.project.detail[i].image_src_2=DataUrlService.correct_image_url+$scope.project.detail[i].image_src_2;
+          }
+        }
+    },10);
+
 
     $scope.loading=false;
 
@@ -274,9 +336,7 @@ routerApp.controller('DetailCtrl',function($scope,$stateParams,$http,$window,Pro
     };
 
 
-    if($scope.project.detail==null){
-        $scope.project.detail=[{"type":"text","title":"","text":""}];
-    }
+    
     $scope.addContent=function(type){
         switch(type){
             case 'text':
@@ -313,9 +373,9 @@ routerApp.controller('DetailCtrl',function($scope,$stateParams,$http,$window,Pro
 
 
 
-     $scope.correctPath=function(path){
-        return  DataUrlService.image_correct_url+path;
-    };
+    //  $scope.correctPath=function(path){
+    //     return  DataUrlService.image_correct_url+path;
+    // };
 
    
 
@@ -365,9 +425,25 @@ routerApp.controller('DetailCtrl',function($scope,$stateParams,$http,$window,Pro
 
 });    
 
-routerApp.controller('PreviewCtrl',function($scope,$stateParams,$http,$window,$document,$timeout,
+routerApp.controller('PreviewCtrl',function($scope,$stateParams,$http,$window,$document,$timeout,$sessionStorage,$cookies,
                 TagService,ProjectParamService,VideoTypeService,DataUrlService){
     
+
+    /* check login */
+    // if(!$sessionStorage.loggedIn){        
+    //     alert('Not logged in!');
+    //     $scope.$state.go('login');    
+    // }
+    // $window.onbeforeunload=function(){
+    //     $sessionStorage.$reset();
+    // };
+    if($cookies.get('artgitalBS')!='loggedIn'){
+        alert('Not logged in!');
+        $scope.$state.go('login');    
+    }
+
+
+
     $scope.templateUrl="../partial/detail.html";
 
     $scope.project=ProjectParamService.findById($stateParams.pid)[0];
@@ -375,9 +451,9 @@ routerApp.controller('PreviewCtrl',function($scope,$stateParams,$http,$window,$d
 
     $scope.loading=false;
 
-    $scope.correctPath=function(path){
-        return DataUrlService.correct_url+path;
-    };
+    // $scope.correctPath=function(path){
+    //     return DataUrlService.correct_url+path;
+    // };
 
     $scope.textList=[];
 
@@ -401,8 +477,8 @@ routerApp.controller('PreviewCtrl',function($scope,$stateParams,$http,$window,$d
                     $scope.project.detail[index].image_src=event.target.result;                
                 };
 
-            }else
-                $scope.project.detail[i].image_src=$scope.correctPath($scope.project.detail[i].image_src);
+            }//else
+                // $scope.project.detail[i].image_src=$scope.correctPath($scope.project.detail[i].image_src);
              
           } 
           else if($scope.project.detail[i].type=="image_2"){
@@ -415,8 +491,8 @@ routerApp.controller('PreviewCtrl',function($scope,$stateParams,$http,$window,$d
                 fileReader.onload=function(event){
                     $scope.project.detail[index].image_src_1=event.target.result;
                 };
-            }else
-                $scope.project.detail[i].image_src_1=$scope.correctPath($scope.project.detail[i].image_src_1);
+            }//else
+                // $scope.project.detail[i].image_src_1=$scope.correctPath($scope.project.detail[i].image_src_1);
 
             var tag2=$scope.project.detail[i].img_tag2;
             if(tag2!==undefined && $scope.imgFlow[tag2]!==undefined){
@@ -427,8 +503,8 @@ routerApp.controller('PreviewCtrl',function($scope,$stateParams,$http,$window,$d
                 fileReader.onload=function(event){
                     $scope.project.detail[index].image_src_2=event.target.result;
                 };
-            }else
-                $scope.project.detail[i].image_src_2=$scope.correctPath($scope.project.detail[i].image_src_2);
+            }//else
+                //$scope.project.detail[i].image_src_2=$scope.correctPath($scope.project.detail[i].image_src_2);
 
           }
         }
